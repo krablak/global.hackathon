@@ -12,7 +12,7 @@ var ntmInfoView = function(module) {
 	};
 
 	module.onDataShapeShow = function(dataShape) {
-		module.infoViewElem.innerHTML = module.infoViewElem.innerHTML + "  " + dataShape.d + "</br>";
+		module.infoViewElem.innerHTML = module.infoViewElem.innerHTML + "  " + dataShape.dstr + "</br>";
 		module.infoViewElem.scrollTop = module.infoViewElem.scrollHeight;
 	};
 

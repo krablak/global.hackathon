@@ -2,6 +2,7 @@ html {
 	height: 100%
 }
 body {
+    font-family: 'Oxygen', sans-serif;
 	height: 100%;
 	margin: 0px;
 	padding: 0px
@@ -72,7 +73,7 @@ body {
 }
 
 .slider-year {
-	width: 7%;
+	width: 1.4%;
 	text-align: center;
 	float: left;
 	cursor: pointer;
