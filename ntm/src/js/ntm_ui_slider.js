@@ -18,7 +18,7 @@ var ntmSlider = function(module) {
 
 		for (var i = 0; i < 68; i++) {
 			var element = document.createElement('span');
-			element.setAttribute("id", "years-" + i);
+			element.setAttribute("id", "years-" + (i+45));
 			var classes = "slider-year";
 			if (i == 0) {
 				classes = classes + " active";
@@ -34,6 +34,15 @@ var ntmSlider = function(module) {
 	};
 
 	module.onDataShapeShow = function(dataShape) {
+	    var classes = "slider-year";
+
+	    for (var i = 0; i < 68; i++) {
+	        var element = document.getElementById("years-"+(i+45))
+	        element.setAttribute("class", classes + " passive");
+	    }
+
+	    var element = document.getElementById("years-"+dataShape.dstr.substring(2,4));
+	    element.setAttribute("class", classes + " active");
 	};
 
 	return module;
