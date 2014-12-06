@@ -21,6 +21,7 @@ body {
 	left: 5%;
 	z-index: 99;
 	padding: 10px;
+	visibility: hidden;
 }
 
 #info-div {
@@ -33,6 +34,7 @@ body {
 	z-index: 99;
 	padding: 10px;
 	overflow: auto;
+	visibility: hidden;
 }
 
 #year-view-div {
@@ -47,6 +49,26 @@ body {
 	z-index: 99;
 	padding: 10px;
 	overflow: auto;
+	visibility: hidden;
+}
+
+#next-btn{
+	visibility: hidden;
+}
+
+#welcome-view-div {
+	position: absolute;
+	background-color: white;
+	padding: 10px;
+	z-index: 200;
+	top: 25%;
+	left:25%;
+	height: 50%;
+	width:50%;
+}
+
+.centered {
+	text-align: center;
 }
 
 .slider-year {

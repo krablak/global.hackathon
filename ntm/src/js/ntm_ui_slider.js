@@ -11,6 +11,7 @@ var ntmSlider = function(module) {
 
 	module.init = function() {
 		var sliElem = document.getElementById("time-slider-div");
+		sliElem.style.visibility="visible";
 		sliElem.innerHTML = "";
 		for (var i = 0; i < 14; i++) {
 			var element = document.createElement('span');

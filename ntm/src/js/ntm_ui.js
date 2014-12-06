@@ -139,30 +139,19 @@ var ntmUI = function(module) {
 		module.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 		// Display welcome message
-		module.showWelcomeMessage();
+		ntmWelcomeView.init();
 
-		// Init time slider
-		ntmSlider.init();
-		// Init info view
-		ntmInfoView.init();
-		// Init year view
-		ntmYearView.init();
+		setTimeout(function() {
+			var data = ntmDataApi.loadAll();
+			// Preload data with shapes
+			module.dataShapes = preloadShapes(data);
+			// Notify welcome screen that data are loaded
+			ntmWelcomeView.onDataReady();
+		}, 2000);
 
-		// Load data
-		var data = ntmDataApi.loadAll();
-
-		// Preload data with shapes
-		module.dataShapes = preloadShapes(data);
 
 		// Start default animation - TODO should be in welcome message action
-		module.player.start(module.dataShapes);
-	};
-
-	/**
-	 * Shows welcome message with basic information.
-	 */
-	module.showWelcomeMessage = function() {
-
+		// module.player.start(module.dataShapes);
 	};
 
 	/**
