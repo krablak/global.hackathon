@@ -1,7 +1,7 @@
 /**
  * Provides simple animation function to visualise explosions on google map.
  */
-var tnmAni = function(module, easing) {
+var ntmAni = function(module, easing) {
 
 	/**
 	 * Default steps count in animation function
@@ -67,4 +67,4 @@ var tnmAni = function(module, easing) {
 	};
 
 	return module;
-}(tnmAni || {}, EasingFunctions);
+}(ntmAni || {}, EasingFunctions);
