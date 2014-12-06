@@ -6,7 +6,7 @@ var ntmAni = function(module, easing) {
 	/**
 	 * Default steps count in animation function
 	 */
-	var stepsCnt = 10;
+	var stepsCnt = 13;
 
 	/**
 	 *  Computes animation step size.
@@ -53,7 +53,7 @@ var ntmAni = function(module, easing) {
 		if (newRadius < targetSize) {
 			setTimeout(function() {
 				step(circle, stepNumber, targetSize);
-			}, 30);
+			}, 20);
 		} else {
 			setTimeout(function() {
 				circle.setMap(null);
