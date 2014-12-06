@@ -8,14 +8,14 @@ var ntmConvert = function(module) {
 	 */
 	module.yieldToMap = function(yld) {
 		// TODO To by implemented scale matching
-		return 100000;
+		return 1000000;
 	};
 
 	/**
 	 * Returns time interval in miliseconds representing the delay between both data items explosions.
 	 */
 	module.toDelay = function(dateItem1, dataItem2) {
-		return 5000;
+		return 100;
 	};
 
 	return module;
