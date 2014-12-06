@@ -58,7 +58,7 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 			fillColor : '#AAFF33',
 			fillOpacity : 0.35,
 			map : module.map,
-			center : new google.maps.LatLng(dataItem.lat, dataItem.lon),
+			center : new google.maps.LatLng(dataItem.a, dataItem.b), /* a and b are latitude and longitude*/
 			radius : 1 // Default radius is set to 0 to be hidden before animation
 		};
 		dataItem["shape"] = new google.maps.Circle(shapeOpts);

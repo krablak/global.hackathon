@@ -24,7 +24,7 @@ def parse_text_file(filename):
         s_strip = map(string.strip, s)
 
         for i, line in enumerate(s_strip):
-            if len(line) < 68: #not an enrtry
+            if len(line) < 68:  # not an enrtry
                 test_name = line[16:35]
                 name_flag = True
                 #print "stored", test_name
@@ -55,7 +55,8 @@ def parse_text_file(filename):
                     "PK" : "Pakistan"
                 }
 
-                country = countries[line[16:18]]
+                country_code = line[16:18]
+                country = countries[country_code]
 
                 #parse test site
                 sites = {
@@ -173,10 +174,27 @@ def parse_text_file(filename):
                       #"MAL" : "Malden Island (UK atmospheric tests)",
                       "KPY"  : (48.59, 46.2933), #"Kapustin Yar (USSR)",
                       "SYS"  : (46.383333, 72.866667), #"Sary Shagan (USSR)",
-                      "" : "None"
+                      "" : ("None", "None")
                 }
-                lat = line[42:50]
-
+                lat = line[42:50].upper().strip()
+                try:
+                    if lat[-1] == "N":
+                         lat = float(lat[:-1])
+                    elif lat[-1] == "S":
+                        lat = -float(lat[:-1])
+                    else:
+                        lat = float(lat)
+                except:
+                    #print line
+                    #print "lat:", lat
+                    #raw_input()
+                    try:
+                        ll = def_coords[site_code]
+                        lat = ll[0]
+                    except:
+                        print site_code
+                        print line
+                        raw_input()
 
                 lon = line[50:59].upper().strip()
                 try:
@@ -189,7 +207,6 @@ def parse_text_file(filename):
                 except:
                     try:
                         ll = def_coords[site_code]
-                        lat = ll[0]
                         lon = ll[1]
                     except:
                         print site_code
@@ -200,7 +217,8 @@ def parse_text_file(filename):
 
                 #print lat, lon
 
-                test_type = types[line[22:26].strip()]
+                test_type_code = line[22:26].strip()
+                test_type = types[test_type_code]
 
 
                 lstr = line[35:41].strip()
@@ -239,25 +257,14 @@ def parse_text_file(filename):
 
 
                 device_types = {
-                    "U" : """fission only with primarialy U235, or boosted or two
-                          stage with primarialy U235 primary (trigger, pit)""",
-                    "P" : """fission only with primarialy Pu239, or boosted or two
-                  stage with primarialy Pu239 primary (trigger, pit)""",
-
+                    "U" : """fission only with primarialy U235, or boosted or two stage with primarialy U235 primary (trigger, pit)""",
+                    "P" : """fission only with primarialy Pu239, or boosted or two stage with primarialy Pu239 primary (trigger, pit)""",
                     "I" : """fission only, fission material mix unknown""",
-                    "B" : """boosted", some fusion yield, perhaps from tritium
-                           although the boost is probably mainly to increase
-                           the fission yield""",
-                    "PB" : """plutonium boosted", some fusion yield, perhaps from tritium
-                           although the boost is probably mainly to increase
-                           the fission yield""",
-                    "UB" : """uranium boosted", some fusion yield, perhaps from tritium
-                           although the boost is probably mainly to increase
-                           the fission yield""",
-                    "2" : """two stage, fusion second stage, possibly many or most of
-                         these will have a U238 fission "third" stage""",
-                    "U2" : """uranium two stage, fusion second stage, possibly many or most of
-                         these will have a U238 fission "third" stage""",
+                    "B" : """boosted", some fusion yield, perhaps from tritium although the boost is probably mainly to increase the fission yield""",
+                    "PB" : """plutonium boosted", some fusion yield, perhaps from tritium although the boost is probably mainly to increase the fission yield""",
+                    "UB" : """uranium boosted", some fusion yield, perhaps from tritium although the boost is probably mainly to increase the fission yield""",
+                    "2" : """two stage, fusion second stage, possibly many or most of these will have a U238 fission "third" stage""",
+                    "U2" : """uranium two stage, fusion second stage, possibly many or most of these will have a U238 fission "third" stage""",
                     "" : "unknown",
                     "E" : ""
                 }
@@ -276,16 +283,16 @@ def parse_text_file(filename):
 
 
                 test_entry = {
-                    "date" : test_date.strftime("%Y-%m-%dT00:00:00.000Z"),
-                    "date_str" : test_date.strftime("%Y-%m-%d %H:%M:%S"),
-                    "country" : country,
-                    "site" : site,
-                    "test_type" : test_type,
-                    "lat" : lat,
-                    "lon" : lon,
-                    "yield" : yield_kt,
-                    "device_type" : device_type,
-                    "test_name" : test_name_0
+                    "d" : test_date.strftime("%Y-%m-%dT00:00:00.000Z"),
+                    "dstr" : test_date.strftime("%Y-%m-%d %H:%M:%S"),
+                    "c" : country_code,
+                    "s" : site_code,
+                    "tt" : test_type_code,
+                    "a" : lat,
+                    "b" : lon,
+                    "y" : yield_kt,
+                    "dt" : dt_code, #device_type,
+                    "n" : test_name_0
 
                 }
 
