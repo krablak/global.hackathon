@@ -305,7 +305,7 @@ def main():
 
     output = "["
     for i in range(last_index):
-        output += tests["%d" % i].__repr__()+"\n"
+        output += tests["%d" % i].__repr__()+",\n"
     output += "]"
 
     print output
