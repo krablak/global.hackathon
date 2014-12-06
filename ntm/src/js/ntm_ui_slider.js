@@ -11,7 +11,7 @@ var ntmSlider = function(module) {
 
 	module.init = function() {
 		var sliElem = document.getElementById("time-slider-div");
-		sliElem.style.visibility="visible";
+		sliElem.style.visibility = "visible";
 		sliElem.innerHTML = "";
 
 		var year0 = 1945;
@@ -20,16 +20,20 @@ var ntmSlider = function(module) {
 			var element = document.createElement('span');
 			element.setAttribute("id", "years-" + i);
 			var classes = "slider-year";
-			if (i  == 0) {
+			if (i == 0) {
 				classes = classes + " active";
 			} else {
 				classes = classes + " passive";
 			}
 			element.setAttribute("class", classes);
-			element.setAttribute("data-year", (year0+i).toString());
-			element.textContent = "."; // + toYear(i) + " ";
+			element.setAttribute("data-year", (year0 + i).toString());
+			element.textContent = ".";
+			// + toYear(i) + " ";
 			sliElem.appendChild(element);
 		}
+	};
+
+	module.onDataShapeShow = function(dataShape) {
 	};
 
 	return module;

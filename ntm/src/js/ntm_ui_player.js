@@ -35,9 +35,8 @@ var ntmUI = function(module) {
 					// Notify info view about new shape animation
 					setTimeout(function() {
 						ntmInfoView.onDataShapeShow(curShape);
-					}, 1);
-					setTimeout(function() {
 						ntmYearView.onDataShapeShow(curShape);
+						ntmSlider.onDataShapeShow(curShape);
 					}, 1);
 					// Run explosion animation
 					ntmAni.animateExplosion(curShape.shape, ntmConvert.yieldToMap(curShape));
