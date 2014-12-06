@@ -15,6 +15,11 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 	module.init = function() {
 		// Map options
 		var mapOptions = {
+			scrollwheel: false,
+    		navigationControl: false,
+    		mapTypeControl: false,
+    		scaleControl: false,
+    		draggable: true,
 			zoom : 2.5,
 			center : new google.maps.LatLng(37.09024, -95.712891),
 			mapTypeId : google.maps.MapTypeId.ROADMAP
