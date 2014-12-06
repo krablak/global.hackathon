@@ -11,7 +11,7 @@ var ntmYearView = function(module) {
 	};
 
 	module.onDataShapeShow = function(dataShape) {
-		var date = dataShape.date;
+		var date = dataShape.d;
 		if(date !== undefined && date.length !== undefined && date.length >= 10){
 			module.yearViewElem.innerHTML = date.substring(0,10);			
 		}
