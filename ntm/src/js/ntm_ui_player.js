@@ -1,7 +1,7 @@
 /**
  * NTM UI player logic module.
  */
-var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmInfoView, ntmYearView) {
+var ntmUI = function(module) {
 
 	/**
 	 * Represents controller module of explosions animations.
@@ -84,4 +84,4 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmInfoView, ntmYea
 	}(module.player || {});
 
 	return module;
-}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert, ntmInfoView, ntmYearView);
+}(ntmUI || {});
