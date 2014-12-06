@@ -2,7 +2,7 @@
  * Module with UI logic.
  * Requires Google Maps V3 API to be loaded before.
  */
-var ntmUI = function(module, ntmDataApi, ntmAni) {
+var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert) {
 
 	// Reference to Google map object
 	module.map = null;
@@ -70,25 +70,8 @@ var ntmUI = function(module, ntmDataApi, ntmAni) {
 		return res;
 	};
 
-	/**
-	 * Represents controller module of explosions animations.
-	 */
-	module.player = function(player) {
-		/**
-		 * Starts animation with given explosions data.
-		 * @param {Object} data
-		 */
-		player.start = function(data) {
-			for (var key in data) {
-				var dataShape = data[key];
-				ntmAni.animateExplosion(dataShape.shape, dataShape.yield);
-			};
-		};
-		return player;
-	}(module.player || {});
-
 	return module;
-}(ntmUI || {}, ntmDataApi, ntmAni);
+}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert);
 
 // Start UI module initialization
 google.maps.event.addDomListener(window, 'load', ntmUI.init);
