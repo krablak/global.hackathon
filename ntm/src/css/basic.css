@@ -58,10 +58,10 @@ body {
 	background-color: #FF0000;
 }
 
-.slider-year.odd {
+.slider-year.passive {
 	background-color: #FF0000;
 }
 
-.slider-year.even {
+.slider-year.active {
 	background-color: #00FF00;
 }

@@ -19,14 +19,14 @@ var ntmSlider = function(module) {
 			var element = document.createElement('span');
 			element.setAttribute("id", "years-" + i);
 			var classes = "slider-year";
-			if (i % 2 == 0) {
-				classes = classes + " even";
+			if (i  == 0) {
+				classes = classes + " active";
 			} else {
-				classes = classes + " odd";
+				classes = classes + " passive";
 			}
 			element.setAttribute("class", classes);
 			element.setAttribute("data-year", (year0+i).toString());
-			//element.textContent = "" + toYear(i) + " ";
+			element.textContent = "."; // + toYear(i) + " ";
 			sliElem.appendChild(element);
 		}
 	};
