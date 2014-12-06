@@ -15,6 +15,11 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 	module.init = function() {
 		// Map options
 		var mapOptions = {
+			scrollwheel: false,
+    		navigationControl: false,
+    		mapTypeControl: false,
+    		scaleControl: false,
+    		draggable: true,
 			zoom : 2.5,
 			center : new google.maps.LatLng(37.09024, -95.712891),
 			mapTypeId : google.maps.MapTypeId.ROADMAP
@@ -54,8 +59,8 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 		var shapeOpts = {
 			strokeColor : '#FF00EE',
 			strokeOpacity : 0.6,
-			strokeWeight : 1,
-			fillColor : '#AAFF33',
+			strokeWeight : 0,
+			fillColor : '#FF3333',
 			fillOpacity : 0.35,
 			map : module.map,
 			center : new google.maps.LatLng(dataItem.a, dataItem.b), /* a and b are latitude and longitude*/
