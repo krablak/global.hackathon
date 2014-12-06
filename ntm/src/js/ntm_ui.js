@@ -59,8 +59,8 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 		var shapeOpts = {
 			strokeColor : '#FF00EE',
 			strokeOpacity : 0.6,
-			strokeWeight : 1,
-			fillColor : '#AAFF33',
+			strokeWeight : 0,
+			fillColor : '#FF3333',
 			fillOpacity : 0.35,
 			map : module.map,
 			center : new google.maps.LatLng(dataItem.lat, dataItem.lon),
