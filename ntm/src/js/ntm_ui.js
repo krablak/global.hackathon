@@ -15,9 +15,9 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert) {
 	module.init = function() {
 		// Map options
 		var mapOptions = {
-			zoom : 4,
+			zoom : 2.5,
 			center : new google.maps.LatLng(37.09024, -95.712891),
-			mapTypeId : google.maps.MapTypeId.TERRAIN
+			mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
 		// Create map object from map-canvas div
 		module.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);

@@ -1,0 +1,35 @@
+html {
+	height: 100%
+}
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
+#map-canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+}
+#time-slider-div {
+	position: absolute;
+	background-color: #ffffff;
+	width: 50%;
+	bottom: 5%;
+	left: 5%;
+	z-index: 99;
+	padding: 10px;
+}
+
+#info-div {
+	position: absolute;
+	background-color: #ffffff;
+	width: 35%;
+	height: 20%;
+	bottom: 5%;
+	right: 5%;
+	z-index: 99;
+	padding: 10px;
+}
