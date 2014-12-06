@@ -56,7 +56,7 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider) {
 			fillColor : '#AAFF33',
 			fillOpacity : 0.35,
 			map : module.map,
-			center : new google.maps.LatLng(dataItem.lat, dataItem.lng),
+			center : new google.maps.LatLng(dataItem.lat, dataItem.lon),
 			radius : 1 // Default radius is set to 0 to be hidden before animation
 		};
 		dataItem["shape"] = new google.maps.Circle(shapeOpts);
