@@ -292,7 +292,7 @@ def parse_text_file(filename):
                 tests["%d" % test_index] = test_entry
 
                 test_index += 1
-    return tests
+    return tests, test_index-1
 
 def main():
     """
@@ -300,11 +300,18 @@ def main():
     """
 
     file_path = ".."+os.sep+"data"+os.sep+"test_data_raw.txt"
-    tests = parse_text_file(file_path)
+    tests, last_index = parse_text_file(file_path)
 
+
+    output = "["
+    for i in range(last_index):
+        output += tests["%d" % i].__repr__()+"\n"
+    output += "]"
+
+    print output
 
     with open("test_json.txt", "w+") as f:
-        f.write(tests.__repr__())
+        f.write(output)
 
 
 if __name__ == "__main__":
