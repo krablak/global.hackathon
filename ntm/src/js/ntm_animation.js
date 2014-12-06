@@ -57,7 +57,7 @@ var ntmAni = function(module, easing) {
 		} else {
 			setTimeout(function() {
 				circle.setMap(null);
-			}, 1000);
+			}, 500);
 		}
 	};
 
