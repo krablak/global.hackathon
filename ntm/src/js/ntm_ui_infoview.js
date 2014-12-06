@@ -7,6 +7,7 @@ var ntmInfoView = function(module) {
 
 	module.init = function() {
 		module.infoViewElem = document.getElementById("info-div");
+		module.infoViewElem.style.visibility="visible";
 		module.infoViewElem.innerHTML = "Info View Initialized";
 	};
 

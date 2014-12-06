@@ -7,6 +7,7 @@ var ntmYearView = function(module) {
 
 	module.init = function() {
 		module.yearViewElem = document.getElementById("year-view-div");
+		module.yearViewElem.style.visibility="visible";
 		module.yearViewElem.innerHTML = "1945";
 	};
 
