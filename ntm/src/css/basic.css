@@ -33,3 +33,19 @@ body {
 	z-index: 99;
 	padding: 10px;
 }
+
+.slider-year {
+	width: 7%;
+	text-align: center;
+	float:left;
+	cursor: pointer;
+	background-color: #FF0000;
+}
+
+.slider-year.odd {
+	background-color: #FF0000;
+}
+
+.slider-year.even {
+	background-color: #00FF00;
+}

@@ -2,7 +2,7 @@
  * Module with UI logic.
  * Requires Google Maps V3 API to be loaded before.
  */
-var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert) {
+var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider) {
 
 	// Reference to Google map object
 	module.map = null;
@@ -24,7 +24,11 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert) {
 
 		// Display welcome message
 		module.showWelcomeMessage();
+		
+		// Init time slider
+		ntmSlider.init();
 
+		// Load data
 		var data = ntmDataApi.loadAll();
 
 		// Preload data with shapes
@@ -71,7 +75,7 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert) {
 	};
 
 	return module;
-}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert);
+}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert, ntmSlider);
 
 // Start UI module initialization
 google.maps.event.addDomListener(window, 'load', ntmUI.init);
