@@ -40,7 +40,7 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmInfoView, ntmYea
 						ntmYearView.onDataShapeShow(curShape);
 					}, 1);
 					// Run explosion animation
-					ntmAni.animateExplosion(curShape.shape, ntmConvert.yieldToMap(curShape.yield));
+					ntmAni.animateExplosion(curShape.shape, ntmConvert.yieldToMap(curShape));
 					// In case that next shape is available schedule next explosion animation execution
 					if (hasNextShape()) {
 						// Compute time of next animation explosion delay
