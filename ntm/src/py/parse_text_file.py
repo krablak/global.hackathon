@@ -3,7 +3,31 @@ __author__ = 'Radek Hofman'
 import os
 import string
 import datetime
-import math
+import matplotlib.pyplot as plt
+import numpy
+
+def show_yield_distribution(yields):
+    """
+    show a histogram of yields
+    """
+    y = numpy.array(yields)
+
+    print "yields range:", y.min(), y.max()
+
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    #let's see it in log scale
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+    a = ax.hist(yields, bins=20)
+
+    plt.savefig("yields.png")
+
+
+
+
 
 def parse_text_file(filename):
     """
@@ -17,6 +41,8 @@ def parse_text_file(filename):
     tests = {}
     name_flag = False
     test_index = 0
+    yields = []
+
     with open(filename, "r") as f:
         s = f.readlines()
         print "Found %d tests entries" % len(s)
@@ -296,10 +322,12 @@ def parse_text_file(filename):
 
                 }
 
+                yields.append(yield_kt)
+
                 tests["%d" % test_index] = test_entry
 
                 test_index += 1
-    return tests, test_index-1
+    return tests, test_index-1, yields
 
 def main():
     """
@@ -307,15 +335,17 @@ def main():
     """
 
     file_path = ".."+os.sep+"data"+os.sep+"test_data_raw.txt"
-    tests, last_index = parse_text_file(file_path)
+    tests, last_index, yields = parse_text_file(file_path)
 
+    #examination of distribution of yields for decision on visualization details
+    show_yield_distribution(yields)
 
     output = "["
     for i in range(last_index):
         output += tests["%d" % i].__repr__()+",\n"
     output += "]"
 
-    print output
+    #print output
 
     with open("test_json.txt", "w+") as f:
         f.write(output)
