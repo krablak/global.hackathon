@@ -310,7 +310,7 @@ def parse_text_file(filename):
 
                 test_entry = {
                     "d" : test_date.strftime("%Y-%m-%dT00:00:00.000Z"),
-                    "dstr" : test_date.strftime("%Y-%m-%d %H:%M:%S"),
+                    "dstr" : test_date.strftime("%Y-%m-%d"),
                     "c" : country_code,
                     "s" : site_code,
                     "tt" : test_type_code,

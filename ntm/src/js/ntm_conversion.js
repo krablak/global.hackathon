@@ -10,7 +10,8 @@ var ntmConvert = function(module) {
 		// scale matching - all explosions have the same base radius plus something
 		// as a function of yield
 
-		var yield_base = 500000 + Math.log10(dataShape.y+1) * 200000.
+		// calculatio of blast circle as a function of yield
+		var yield_base = 300000 + Math.log10(dataShape.y+1) * 150000.;
 
 		// finally we do correction on latitude convergence
 		return yield_base * Math.cos(dataShape.a / 180. * 3.14159);
