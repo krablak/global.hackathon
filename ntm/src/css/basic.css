@@ -35,10 +35,23 @@ body {
 	overflow: auto;
 }
 
+#year-view-div {
+	position: absolute;
+	font-size: 50px;
+	font-weight: bold;
+	width: 20%;
+	height: 10%;
+	top: 5%;
+	right: 5%;
+	z-index: 99;
+	padding: 10px;
+	overflow: auto;
+}
+
 .slider-year {
 	width: 7%;
 	text-align: center;
-	float:left;
+	float: left;
 	cursor: pointer;
 	background-color: #FF0000;
 }

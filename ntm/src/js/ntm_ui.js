@@ -2,7 +2,7 @@
  * Module with UI logic.
  * Requires Google Maps V3 API to be loaded before.
  */
-var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoView) {
+var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoView, ntmYearView) {
 
 	// Reference to Google map object
 	module.map = null;
@@ -15,11 +15,11 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 	module.init = function() {
 		// Map options
 		var mapOptions = {
-			scrollwheel: false,
-    		navigationControl: false,
-    		mapTypeControl: false,
-    		scaleControl: false,
-    		draggable: true,
+			scrollwheel : false,
+			navigationControl : false,
+			mapTypeControl : false,
+			scaleControl : false,
+			draggable : true,
 			zoom : 2.5,
 			center : new google.maps.LatLng(37.09024, -95.712891),
 			mapTypeId : google.maps.MapTypeId.ROADMAP
@@ -32,8 +32,10 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 
 		// Init time slider
 		ntmSlider.init();
-		// Initi info view
+		// Init info view
 		ntmInfoView.init();
+		// Init year view
+		ntmYearView.init();
 
 		// Load data
 		var data = ntmDataApi.loadAll();
@@ -82,7 +84,7 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoV
 	};
 
 	return module;
-}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoView);
+}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert, ntmSlider, ntmInfoView, ntmYearView);
 
 // Start UI module initialization
 google.maps.event.addDomListener(window, 'load', ntmUI.init);

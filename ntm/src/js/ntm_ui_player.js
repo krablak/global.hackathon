@@ -1,7 +1,7 @@
 /**
  * NTM UI player logic module.
  */
-var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmInfoView) {
+var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmInfoView, ntmYearView) {
 
 	/**
 	 * Represents controller module of explosions animations.
@@ -33,7 +33,12 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmInfoView) {
 				var curShape = nextShape();
 				if (curShape != null && player.play) {
 					// Notify info view about new shape animation
-					ntmInfoView.onDataShapeShow(curShape);
+					setTimeout(function() {
+						ntmInfoView.onDataShapeShow(curShape);
+					}, 1);
+					setTimeout(function() {
+						ntmYearView.onDataShapeShow(curShape);
+					}, 1);
 					// Run explosion animation
 					ntmAni.animateExplosion(curShape.shape, ntmConvert.yieldToMap(curShape.yield));
 					// In case that next shape is available schedule next explosion animation execution
@@ -79,4 +84,4 @@ var ntmUI = function(module, ntmDataApi, ntmAni, ntmConvert, ntmInfoView) {
 	}(module.player || {});
 
 	return module;
-}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert, ntmInfoView);
+}(ntmUI || {}, ntmDataApi, ntmAni, ntmConvert, ntmInfoView, ntmYearView);
