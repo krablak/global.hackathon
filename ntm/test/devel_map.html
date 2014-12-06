@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<title>NTM</title>
+		<style>
+			html, body, #map-canvas {
+				height: 100%;
+				margin: 0px;
+				padding: 0px
+			}
+		</style>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+		<script src="../src/js/easing_fns.js"></script>
+		<script src="../src/js/ntm_animation.js"></script>
+		<script>
+			var citymap = {};
+			citymap['vancouver'] = {
+				center : new google.maps.LatLng(49.25, -123.1),
+				population : 603502
+			};
+
+			var cityCircle;
+
+			function initialize() {
+				// Create the map.
+				var mapOptions = {
+					zoom : 4,
+					center : new google.maps.LatLng(37.09024, -95.712891),
+					mapTypeId : google.maps.MapTypeId.TERRAIN
+				};
+
+				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+				// Construct the circle for each value in citymap.
+				// Note: We scale the area of the circle based on the population.
+				for (var city in citymap) {
+					var populationOptions = {
+						strokeColor : '#FF00EE',
+						strokeOpacity : 0.6,
+						strokeWeight : 1,
+						fillColor : '#AAFF33',
+						fillOpacity : 0.35,
+						map : map,
+						center : citymap[city].center,
+						radius : 1
+					};
+					// Add the circle for this city to the map.
+					cityCircle = new google.maps.Circle(populationOptions);
+				}
+
+				setTimeout(function() {
+					tnmAni.animateExplosion(cityCircle, 1000000);
+				}, 2000);
+			}
+			
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+	</head>
+
+	<body>
+		<div id="map-canvas"></div>
+	</body>
+
+</html>
