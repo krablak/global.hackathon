@@ -48,6 +48,7 @@ def parse_text_file(filename):
         print "Found %d tests entries" % len(s)
 
         s_strip = map(string.strip, s)
+        years = []
 
         for i, line in enumerate(s_strip):
             if len(line) < 68:  # not an enrtry
@@ -61,6 +62,9 @@ def parse_text_file(filename):
                     year = 2000+year_s
                 else:
                     year = 1900+year_s
+
+
+                years.append(year)
 
                 month = int(line[2:4])
                 day = int(line[4:6])
@@ -335,7 +339,7 @@ def parse_text_file(filename):
                 tests["%d" % test_index] = test_entry
 
                 test_index += 1
-    return tests, test_index-1, yields
+    return tests, test_index-1, yields, years
 
 def main():
     """
@@ -343,7 +347,7 @@ def main():
     """
 
     file_path = ".."+os.sep+"data"+os.sep+"test_data_raw.txt"
-    tests, last_index, yields = parse_text_file(file_path)
+    tests, last_index, yields, years = parse_text_file(file_path)
 
     #examination of distribution of yields for decision on visualization details
     show_yield_distribution(yields)
@@ -357,6 +361,11 @@ def main():
 
     with open("test_json.txt", "w+") as f:
         f.write(output)
+
+    from sets import Set
+    test_years = Set(years)
+    print test_years
+    print len(test_years)
 
 
 if __name__ == "__main__":
