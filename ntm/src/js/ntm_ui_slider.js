@@ -17,6 +17,7 @@ var ntmSlider = function(module) {
 	module.init = function() {
 		var sliElem = document.getElementById("slider-content");
 		sliElem.style.visibility = "visible";
+		document.getElementById("slider-control-btn").style.visibility = "visible";
 		sliElem.innerHTML = "";
 
 		var year0 = 1945;
