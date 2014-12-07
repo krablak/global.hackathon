@@ -7,13 +7,22 @@ var ntmInfoView = function(module) {
 
 	module.init = function() {
 		module.infoViewElem = document.getElementById("info-div");
-		module.infoViewElem.style.visibility="visible";
+		module.infoViewElem.style.visibility = "visible";
 		module.infoViewElem.innerHTML = "";
 	};
 
 	module.onDataShapeShow = function(dataShape) {
-		module.infoViewElem.innerHTML = module.infoViewElem.innerHTML + "  " + dataShape.dstr + "</br>";
+		appendLine(dataShape.dstr);
 		module.infoViewElem.scrollTop = module.infoViewElem.scrollHeight;
+	};
+
+	/**
+	 * Appends new line div into info view.
+	 */
+	var appendLine = function(lineText) {
+		var newLineDiv = document.createElement("div");
+		newLineDiv.textContent = lineText;
+		module.infoViewElem.appendChild(newLineDiv);
 	};
 
 	return module;
