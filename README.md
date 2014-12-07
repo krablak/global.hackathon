@@ -4,7 +4,7 @@
 
 ### Authors
 
-Michal Ráček and Radek Hofman
+Michal Ráček and Radek Hofman a.k.a. [PyJunkies](https://github.com/krablak/global.hackathon/blob/master/Teams/PyJunkies/ABOUT.md) team
 
 #### In which category do we take part in?
 
@@ -13,6 +13,8 @@ We decided to participate in the following topic:
 	Problems facing our planet, explained using interactive data visualization. (e.g. climate change, earthquakes, food/water waste, accessibility related issues, etc.)
 	
 #### What do we do and why?
+
+Our awesome app is running [here](http://jezis.koding.io/#).
 
 ![screenshot](https://raw.githubusercontent.com/krablak/global.hackathon/master/screen1.jpg "A motivation screenshot from the final application:)")
 
@@ -51,6 +53,10 @@ First of all, due to limited time we wanted to keep thigs simple. Our technology
 - [Python](https://www.python.org/) - Data processing
 - [Aptana Studio](http://www.aptana.com/index.html) - Frontend IDE
 - [PyCharm](https://www.jetbrains.com/pycharm/) - Dataprocessing IDE
+
+What follows are two photos from analysis and development phases of the project:)
+
+![am](https://github.com/krablak/global.hackathon/blob/master/team.jpg "Team and development process")
 
 The result is 246 KB of JS including whole logic and also all source data! JS logic itself is built on a few separate [modules which are implemented using anonymous closures](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html). Simply, no magic included.
 
