@@ -27,7 +27,7 @@ var ntmSlider = function(module) {
 			}
 			element.setAttribute("class", classes);
 			element.setAttribute("data-year", (year0 + i).toString());
-			element.textContent = ".";
+			element.textContent = i+45;
 			// + toYear(i) + " ";
 			sliElem.appendChild(element);
 		}

@@ -6,7 +6,7 @@ var ntmAni = function(module, easing) {
 	/**
 	 * Default steps count in animation function
 	 */
-	var stepsCnt = 13;
+	var stepsCnt = 10;
 
 	/**
 	 * Private function containing the core logic of animation function.
