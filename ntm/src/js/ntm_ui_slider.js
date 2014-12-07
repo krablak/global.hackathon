@@ -15,7 +15,7 @@ var ntmSlider = function(module) {
 	};
 
 	module.init = function() {
-		var sliElem = document.getElementById("time-slider-div");
+		var sliElem = document.getElementById("slider-content");
 		sliElem.style.visibility = "visible";
 		sliElem.innerHTML = "";
 
