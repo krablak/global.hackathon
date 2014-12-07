@@ -87,6 +87,17 @@ body {
 	padding-bottom: 3px;
 }
 
+#player-controls {
+	float: left;
+}
+
+#slider-control-btn {
+	padding: 3px;
+	margin-right: 3px;
+	color: #A5A5A5;
+	background-color: transparent;
+}
+
 .slider-year.passive {
 	background-color: #A5A5A5;
 }
@@ -102,6 +113,7 @@ body {
 .slider_div {
 
 }
+
 
 [tooltip]:before {
     /* needed - do not touch */
@@ -129,3 +141,4 @@ body {
 [tooltip]:not([tooltip-persistent]):before {
     pointer-events: none;
 }
+

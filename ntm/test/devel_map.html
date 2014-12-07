@@ -6,6 +6,7 @@
 		<meta charset="utf-8">
 		<title>NTM</title>
 		<link rel="stylesheet" type="text/css" href="../src/css/basic.css" />
+		<link rel="stylesheet" type="text/css" href="../src/css/icon-style.css" />
 		<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		<script src="../src/js/easing_fns.js"></script>
@@ -40,10 +41,11 @@
 					</div>
 				</div>
 				<div id="year-view-div"></div>
-				<span id="slider-control-btn" style="background-color: red; z-index: 100; position: absolute; top: 0px;left: 0px;">Pause</span>
 				<div id="time-slider-div">
-					<div id="player-controls"></div>
-					<div id="slider-content" class="slider_div"></div>
+					<span id="player-controls">
+						<span id="slider-control-btn" class="icon-pause"></span>
+					</span>
+					<span id="slider-content"></span>
 				</div>
 				<div id="info-div">
 					Additional Test Information
