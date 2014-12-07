@@ -39,7 +39,6 @@ We decided for a simple minimalisic design: red explosions on a dark map. Specta
 
 #### Quickstart guide & controls
 
-![am](https://github.com/krablak/global.hackathon/blob/master/team.jpg "Team and development process")
 Controls are also minimalistic. Animation of 2000+ blast in the chronological order starts immediately after clicking `Next` on the splashscreen providing basic information. Animation can be then stopped and resumed using play/pause button in the bottom-left corner. There is a time progress bar showing current year between 1945 and 2013. User can click a year to start animation from this point in time. So when the animation finishes it can be restarted by cliking the year 1945 (a progress bar bin with label "45"). Hoovering over a year bar shows a tooltip with summary of explosions for that year. Info window located in the lower-right corner shows basic information about recently displayed explosions: country (identified by flag), date, yield in kilotons (kt), test site and nuclear explosion type (air, underground etc.). Current date is displayed in upper right corner.
 
 ####  Technology
@@ -52,6 +51,10 @@ First of all, due to limited time we wanted to keep thigs simple. Our technology
 - [Python](https://www.python.org/) - Data processing
 - [Aptana Studio](http://www.aptana.com/index.html) - Frontend IDE
 - [PyCharm](https://www.jetbrains.com/pycharm/) - Dataprocessing IDE
+
+What follows are two photos from analysis and development phases of the project:)
+
+![am](https://github.com/krablak/global.hackathon/blob/master/team.jpg "Team and development process")
 
 The result is 246 KB of JS including whole logic and also all source data! JS logic itself is built on a few separate [modules which are implemented using anonymous closures](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html). Simply, no magic included.
 
