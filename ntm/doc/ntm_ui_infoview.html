@@ -44,16 +44,16 @@
 	};
 
 	<span class="hljs-built_in">module</span>.onDataShapeShow = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataShape)</span> </span>{
-		appendLine(dataShape.dstr);
+		appendLine(dataShape);
 		<span class="hljs-built_in">module</span>.infoViewElem.scrollTop = <span class="hljs-built_in">module</span>.infoViewElem.scrollHeight;
 	};
 
 	<span class="hljs-comment">/**
 	 * Appends new line div into info view.
 	 */</span>
-	<span class="hljs-keyword">var</span> appendLine = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(lineText)</span> </span>{
+	<span class="hljs-keyword">var</span> appendLine = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataShape)</span> </span>{
 		<span class="hljs-keyword">var</span> newLineDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
-		newLineDiv.textContent = lineText;
+		newLineDiv.innerHTML = dataShape.dstr + <span class="hljs-string">"&lt;img src='"</span>+<span class="hljs-string">"../img/"</span>+dataShape.c+<span class="hljs-string">".png' alt=''/&gt;"</span>;
 		<span class="hljs-built_in">module</span>.infoViewElem.appendChild(newLineDiv);
 	};
 

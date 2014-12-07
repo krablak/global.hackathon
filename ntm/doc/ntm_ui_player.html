@@ -106,13 +106,13 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			<span class="hljs-keyword">if</span> (data != <span class="hljs-literal">undefined</span>) {
+            <div class="content"><div class='highlight'><pre>			<span class="hljs-keyword">if</span> (data !== <span class="hljs-literal">undefined</span>) {
 				player.allShapes = data;
 			}
 
 			<span class="hljs-keyword">var</span> animateNext = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 				<span class="hljs-keyword">var</span> curShape = nextShape();
-				<span class="hljs-keyword">if</span> (curShape != <span class="hljs-literal">null</span> &amp;&amp; player.play) {</pre></div></div>
+				<span class="hljs-keyword">if</span> (curShape !== <span class="hljs-literal">null</span> &amp;&amp; player.play) {</pre></div></div>
             
         </li>
         
@@ -265,7 +265,7 @@
 			<span class="hljs-keyword">var</span> wasFound = <span class="hljs-literal">false</span>;
 			<span class="hljs-keyword">for</span> (; yearIdx &lt; player.allShapes.length; yearIdx++) {
 				<span class="hljs-keyword">var</span> curShape = player.allShapes[yearIdx];
-				<span class="hljs-keyword">if</span> (curShape.d !== <span class="hljs-literal">undefined</span> &amp;&amp; curShape.d.indexOf(year) == <span class="hljs-number">0</span>) {
+				<span class="hljs-keyword">if</span> (curShape.d !== <span class="hljs-literal">undefined</span> &amp;&amp; curShape.d.indexOf(year) === <span class="hljs-number">0</span>) {
 					wasFound = <span class="hljs-literal">true</span>;
 					<span class="hljs-keyword">break</span>;
 				}
@@ -345,7 +345,7 @@
 		 * Adds shape do data item.
 		 */</span>
 		<span class="hljs-keyword">var</span> dataToShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataItem)</span> </span>{
-			<span class="hljs-keyword">if</span> (dataItem[<span class="hljs-string">"shape"</span>] === <span class="hljs-literal">undefined</span>) {
+			<span class="hljs-keyword">if</span> (dataItem.shape === <span class="hljs-literal">undefined</span>) {
 				<span class="hljs-keyword">var</span> shapeOpts = {
 					strokeColor : <span class="hljs-string">'#FF00EE'</span>,
 					strokeOpacity : <span class="hljs-number">0.6</span>,
@@ -356,7 +356,7 @@
 					center : <span class="hljs-keyword">new</span> google.maps.LatLng(dataItem.a, dataItem.b), <span class="hljs-comment">/* a and b are latitude and longitude*/</span>
 					radius : <span class="hljs-number">1</span> <span class="hljs-comment">// Default radius is set to 0 to be hidden before animation</span>
 				};
-				dataItem[<span class="hljs-string">"shape"</span>] = <span class="hljs-keyword">new</span> google.maps.Circle(shapeOpts);
+				dataItem.shape = <span class="hljs-keyword">new</span> google.maps.Circle(shapeOpts);
 			}
 			<span class="hljs-keyword">return</span> dataItem;
 		};
@@ -365,7 +365,7 @@
 		 * Removes shape from data item.
 		 */</span>
 		<span class="hljs-keyword">var</span> removeShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataItem)</span> </span>{
-			dataItem[<span class="hljs-string">"shape"</span>] = <span class="hljs-literal">undefined</span>;
+			dataItem.shape = <span class="hljs-literal">undefined</span>;
 		};
 
 		<span class="hljs-comment">/**
@@ -374,7 +374,7 @@
 		<span class="hljs-keyword">var</span> nextShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
 			<span class="hljs-keyword">var</span> nShape = <span class="hljs-literal">null</span>;
 			player.currentShapeIndex = player.currentShapeIndex + <span class="hljs-number">1</span>;
-			<span class="hljs-keyword">if</span> (player.allShapes[player.currentShapeIndex] != <span class="hljs-literal">undefined</span>) {
+			<span class="hljs-keyword">if</span> (player.allShapes[player.currentShapeIndex] !== <span class="hljs-literal">undefined</span>) {
 				nShape = player.allShapes[player.currentShapeIndex];
 			}
 			<span class="hljs-keyword">return</span> nShape;
@@ -384,7 +384,7 @@
 		 * Returns true in case that next shape can be shown.
 		 */</span>
 		<span class="hljs-keyword">var</span> hasNextShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-			<span class="hljs-keyword">return</span> player.allShapes[player.currentShapeIndex + <span class="hljs-number">1</span>] != <span class="hljs-literal">undefined</span>;
+			<span class="hljs-keyword">return</span> player.allShapes[player.currentShapeIndex + <span class="hljs-number">1</span>] !== <span class="hljs-literal">undefined</span>;
 		};
 
 		<span class="hljs-keyword">return</span> player;
