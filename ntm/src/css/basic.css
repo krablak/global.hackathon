@@ -1,12 +1,14 @@
 html {
 	height: 100%
 }
+
 body {
-    font-family: 'Oxygen', sans-serif;
+	font-family: 'Oxygen', sans-serif;
 	height: 100%;
 	margin: 0px;
 	padding: 0px
 }
+
 #map-canvas {
 	position: absolute;
 	top: 0px;
@@ -14,24 +16,14 @@ body {
 	height: 100%;
 	width: 100%;
 }
-#time-slider-div {
-	position: absolute;
-	background-color: #ffffff;
-	width: 50%;
-	bottom: 5%;
-	left: 5%;
-	z-index: 99;
-	padding: 10px;
-	visibility: hidden;
-}
 
 #info-div {
 	position: absolute;
 	background-color: #ffffff;
 	width: 35%;
 	height: 20%;
-	bottom: 5%;
-	right: 5%;
+	bottom: 7%;
+	right: 0%;
 	z-index: 99;
 	padding: 10px;
 	overflow: auto;
@@ -53,7 +45,7 @@ body {
 	visibility: hidden;
 }
 
-#next-btn{
+#next-btn {
 	display: none;
 }
 
@@ -64,13 +56,23 @@ body {
 	padding: 10px;
 	z-index: 200;
 	top: 25%;
-	left:25%;
+	left: 25%;
 	height: 50%;
-	width:50%;
+	width: 50%;
 }
 
 .centered {
 	text-align: center;
+}
+
+#time-slider-div {
+	position: absolute;
+	background-color: #ffffff;
+	width: 100%;
+	bottom: 0%;
+	z-index: 99;
+	padding: 10px;
+	visibility: hidden;
 }
 
 .slider-year {
