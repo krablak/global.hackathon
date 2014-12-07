@@ -17,7 +17,7 @@ var ntmAni = function(module, easing) {
 		var radius = circle.radius;
 
 		var easingValue = easing.easeOutQuad(stepNumber / stepsCnt);
-		var newRadius = targetSize * easingValue
+		var newRadius = targetSize * easingValue;
 
 		// Set the new radius to circle
 		circle.set("radius", newRadius);
