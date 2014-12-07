@@ -42,6 +42,10 @@ def parse_text_file(filename):
     name_flag = False
     test_index = 0
     yields = []
+    nukes_in_years = {}
+
+    for year in range(1945, 2014):
+        nukes_in_years[str(year)] = {}
 
     with open(filename, "r") as f:
         s = f.readlines()
@@ -49,6 +53,9 @@ def parse_text_file(filename):
 
         s_strip = map(string.strip, s)
         years = []
+
+
+
 
         for i, line in enumerate(s_strip):
             if len(line) < 68:  # not an enrtry
@@ -92,6 +99,12 @@ def parse_text_file(filename):
                 }
 
                 country_code = line[16:18]
+
+                if not nukes_in_years[str(year)].has_key(country_code):
+                    nukes_in_years[str(year)][country_code] = 0
+
+                nukes_in_years[str(year)][country_code] += 1
+
                 country = countries[country_code]
 
                 #parse test site
@@ -339,7 +352,7 @@ def parse_text_file(filename):
                 tests["%d" % test_index] = test_entry
 
                 test_index += 1
-    return tests, test_index-1, yields, years
+    return tests, test_index-1, yields, years, nukes_in_years
 
 def main():
     """
@@ -347,7 +360,7 @@ def main():
     """
 
     file_path = ".."+os.sep+"data"+os.sep+"test_data_raw.txt"
-    tests, last_index, yields, years = parse_text_file(file_path)
+    tests, last_index, yields, years, nukes_in_years = parse_text_file(file_path)
 
     #examination of distribution of yields for decision on visualization details
     show_yield_distribution(yields)
@@ -357,10 +370,17 @@ def main():
         output += tests["%d" % i].__repr__()+",\n"
     output += "]"
 
-    #print output
-
     with open("test_json.txt", "w+") as f:
         f.write(output)
+
+    output = "{"
+    for i in range(1945, 2014):
+        output += "\""+str(i)+"\" : "+nukes_in_years["%d" % i].__repr__()+",\n"
+    output += "}"
+
+    with open("nukes_in_years_json.txt", "w+") as f:
+        f.write(output)
+
 
     from sets import Set
     test_years = Set(years)
