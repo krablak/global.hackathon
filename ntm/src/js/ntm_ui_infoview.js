@@ -12,16 +12,16 @@ var ntmInfoView = function(module) {
 	};
 
 	module.onDataShapeShow = function(dataShape) {
-		appendLine(dataShape.dstr);
+		appendLine(dataShape);
 		module.infoViewElem.scrollTop = module.infoViewElem.scrollHeight;
 	};
 
 	/**
 	 * Appends new line div into info view.
 	 */
-	var appendLine = function(lineText) {
+	var appendLine = function(dataShape) {
 		var newLineDiv = document.createElement("div");
-		newLineDiv.textContent = lineText;
+		newLineDiv.innerHTML = dataShape.dstr + "<img src='"+"../img/"+dataShape.c+".png' alt=''/>";
 		module.infoViewElem.appendChild(newLineDiv);
 	};
 
