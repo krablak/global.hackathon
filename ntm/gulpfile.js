@@ -8,6 +8,7 @@ var concat = require('gulp-concat');
 var docco = require("gulp-docco");
 var del = require('del');
 var uglify = require('gulp-uglify');
+var minifyCss = require('gulp-minify-css');
 
 // Location variables
 var paths = {
@@ -38,7 +39,7 @@ gulp.task('clean', function(cb) {
 
 gulp.task('build', ['clean'], function() {
 	gulp.src(paths.src.js).pipe(concat('all.js')).pipe(uglify()).pipe(gulp.dest('./build/js/'));
-	gulp.src(paths.src.styles).pipe(concat('all.css')).pipe(gulp.dest('./build/css/'));
+	gulp.src(paths.src.styles).pipe(concat('all.css')).pipe(minifyCss()).pipe(gulp.dest('./build/css/'));
 	gulp.src(paths.src.fonts).pipe(gulp.dest('./build/fonts/'));
 	gulp.src(paths.src.images).pipe(gulp.dest('./build/img/'));
 	gulp.src(paths.src.html).pipe(gulp.dest('./build/'));
