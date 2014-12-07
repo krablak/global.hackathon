@@ -34,6 +34,7 @@ var ntmSlider = function(module) {
 			}
 			element.setAttribute("class", classes);
 			element.setAttribute("data-year", (i).toString());
+			element.setAttribute("tooltip", (i).toString());
 			element.textContent = toYear(i);
 
 			sliElem.appendChild(element);

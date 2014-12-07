@@ -102,3 +102,30 @@ body {
 .slider_div {
 
 }
+
+[tooltip]:before {
+    /* needed - do not touch */
+    content: attr(tooltip);
+    position: absolute;
+    opacity: 0;
+
+    /* customizable */
+    transition: all 0.15s ease;
+    padding: 5px;
+    /*color: #FFFFFF;*/
+    /*border-radius: 0px;*/
+}
+
+[tooltip]:hover:before {
+    /* needed - do not touch */
+    opacity: 1;
+
+    /* customizable */
+    background: #A5A5A5;
+    margin-top: -30px;
+    margin-left: 10px;
+}
+
+[tooltip]:not([tooltip-persistent]):before {
+    pointer-events: none;
+}
