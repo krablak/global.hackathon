@@ -36,7 +36,28 @@ Each nuclear explosion is visualised as a growing red circle on a styled [Google
 
 Colors - red and dark colors
 
-#### How is it implemented (technological stack)
-G!
+####  Technology
+Our technology stack is showcase of rich client application built without tons of thirdparty libraries and we are using only [Vanilla JS](http://vanilla-js.com/) and [Google Maps V3](https://developers.google.com/maps/documentation/javascript/reference).
+
+- [Vanilla JS](http://vanilla-js.com/) - UI
+- [Google Maps V3](https://developers.google.com/maps/documentation/javascript/reference) - UI
+- [Gulp.js](http://gulpjs.com/) - Build process
+- [JSHint](http://jshint.com/) - Code quality
+- [Python](https://www.python.org/) - Data processing
+- [Aptana Studio](http://www.aptana.com/index.html) - Frontend IDE
+- [PyCharm](https://www.jetbrains.com/pycharm/) - Dataprocessing IDE
+
+The result is 246 KB of JS including whole logic and also all source data. JS itself is built on few separate [modules which are implemented using anonymous closures](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html). Simply, no magic included.
+
+####  Future
+Whole project was written in two days and according to that there are many ways how it could be improved:
+
+- Performance improvements
+- Extended browsers support
+- Improved and extended UI controls
+- Support for mobile devices
+- Modules structure refactoring
+- Generated documentation
+- Unit tests
 
 ### Quick-start guide
