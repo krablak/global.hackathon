@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ntm_ui_infoview.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>ntm_ui_infoview.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/**
+ * Module with NTM info view UI logic.
+ */</span>
+<span class="hljs-keyword">var</span> ntmInfoView = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(module)</span> </span>{
+
+	<span class="hljs-built_in">module</span>.infoViewElem = <span class="hljs-literal">null</span>;
+
+	<span class="hljs-built_in">module</span>.init = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+		<span class="hljs-built_in">module</span>.infoViewElem = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"info-div"</span>);
+		<span class="hljs-built_in">module</span>.infoViewElem.style.visibility = <span class="hljs-string">"visible"</span>;
+		<span class="hljs-built_in">module</span>.infoViewElem.innerHTML = <span class="hljs-string">""</span>;
+	};
+
+	<span class="hljs-built_in">module</span>.onDataShapeShow = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataShape)</span> </span>{
+		appendLine(dataShape);
+		<span class="hljs-built_in">module</span>.infoViewElem.scrollTop = <span class="hljs-built_in">module</span>.infoViewElem.scrollHeight;
+	};
+
+	<span class="hljs-comment">/**
+	 * Appends new line div into info view.
+	 */</span>
+	<span class="hljs-keyword">var</span> appendLine = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataShape)</span> </span>{
+		<span class="hljs-keyword">var</span> newLineDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+		newLineDiv.innerHTML = dataShape.dstr + <span class="hljs-string">"&lt;img src='"</span>+<span class="hljs-string">"../img/"</span>+dataShape.c+<span class="hljs-string">".png' alt=''/&gt;"</span>;
+		<span class="hljs-built_in">module</span>.infoViewElem.appendChild(newLineDiv);
+	};
+
+	<span class="hljs-keyword">return</span> <span class="hljs-built_in">module</span>;
+}(ntmInfoView || {});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

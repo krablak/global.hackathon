@@ -1,6 +1,7 @@
-/**
- * Source: https://gist.github.com/gre/1650294
- */
+// # EasingFunctions
+// Various easing functions used within animations.
+// Source: https://gist.github.com/gre/1650294
+//
 EasingFunctions = {
 	// no easing, no acceleration
 	linear : function(t) {
@@ -16,7 +17,7 @@ EasingFunctions = {
 	},
 	// acceleration until halfway, then deceleration
 	easeInOutQuad : function(t) {
-		return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+		return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 	},
 	// accelerating from zero velocity
 	easeInCubic : function(t) {
@@ -28,7 +29,7 @@ EasingFunctions = {
 	},
 	// acceleration until halfway, then deceleration
 	easeInOutCubic : function(t) {
-		return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+		return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
 	},
 	// accelerating from zero velocity
 	easeInQuart : function(t) {
@@ -40,7 +41,7 @@ EasingFunctions = {
 	},
 	// acceleration until halfway, then deceleration
 	easeInOutQuart : function(t) {
-		return t < .5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
+		return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
 	},
 	// accelerating from zero velocity
 	easeInQuint : function(t) {
@@ -52,6 +53,6 @@ EasingFunctions = {
 	},
 	// acceleration until halfway, then deceleration
 	easeInOutQuint : function(t) {
-		return t < .5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
+		return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
 	}
 };

@@ -11,10 +11,10 @@ var ntmConvert = function(module) {
 		// as a function of yield
 
 		// calculatio of blast circle as a function of yield
-		var yield_base = 300000 + Math.log10(dataShape.y+1) * 150000.;
+		var yield_base = 300000 + Math.log10(dataShape.y+1) * 150000;
 
 		// finally we do correction on latitude convergence
-		return yield_base * Math.cos(dataShape.a / 180. * 3.14159);
+		return yield_base * Math.cos(dataShape.a / 180 * 3.14159);
 	};
 
 	/**

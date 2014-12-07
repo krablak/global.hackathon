@@ -48,13 +48,13 @@ var ntmUI = function(module) {
 			// Mark player as playing
 			player.play = true;
 			// Set new data shapes
-			if (data != undefined) {
+			if (data !== undefined) {
 				player.allShapes = data;
 			}
 
 			var animateNext = function() {
 				var curShape = nextShape();
-				if (curShape != null && player.play) {
+				if (curShape !== null && player.play) {
 					// Notify other views about new shape animation
 					setTimeout(function() {
 						ntmInfoView.onDataShapeShow(curShape);
@@ -91,7 +91,7 @@ var ntmUI = function(module) {
 			var wasFound = false;
 			for (; yearIdx < player.allShapes.length; yearIdx++) {
 				var curShape = player.allShapes[yearIdx];
-				if (curShape.d !== undefined && curShape.d.indexOf(year) == 0) {
+				if (curShape.d !== undefined && curShape.d.indexOf(year) === 0) {
 					wasFound = true;
 					break;
 				}
@@ -119,7 +119,7 @@ var ntmUI = function(module) {
 		 * Adds shape do data item.
 		 */
 		var dataToShape = function(dataItem) {
-			if (dataItem["shape"] === undefined) {
+			if (dataItem.shape === undefined) {
 				var shapeOpts = {
 					strokeColor : '#FF00EE',
 					strokeOpacity : 0.6,
@@ -130,7 +130,7 @@ var ntmUI = function(module) {
 					center : new google.maps.LatLng(dataItem.a, dataItem.b), /* a and b are latitude and longitude*/
 					radius : 1 // Default radius is set to 0 to be hidden before animation
 				};
-				dataItem["shape"] = new google.maps.Circle(shapeOpts);
+				dataItem.shape = new google.maps.Circle(shapeOpts);
 			}
 			return dataItem;
 		};
@@ -139,7 +139,7 @@ var ntmUI = function(module) {
 		 * Removes shape from data item.
 		 */
 		var removeShape = function(dataItem) {
-			dataItem["shape"] = undefined;
+			dataItem.shape = undefined;
 		};
 
 		/**
@@ -148,7 +148,7 @@ var ntmUI = function(module) {
 		var nextShape = function() {
 			var nShape = null;
 			player.currentShapeIndex = player.currentShapeIndex + 1;
-			if (player.allShapes[player.currentShapeIndex] != undefined) {
+			if (player.allShapes[player.currentShapeIndex] !== undefined) {
 				nShape = player.allShapes[player.currentShapeIndex];
 			}
 			return nShape;
@@ -158,7 +158,7 @@ var ntmUI = function(module) {
 		 * Returns true in case that next shape can be shown.
 		 */
 		var hasNextShape = function() {
-			return player.allShapes[player.currentShapeIndex + 1] != undefined;
+			return player.allShapes[player.currentShapeIndex + 1] !== undefined;
 		};
 
 		return player;
