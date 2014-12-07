@@ -14,6 +14,8 @@ We decided to participate in the following topic:
 	
 #### What do we do and why?
 
+Our awesome app is running [here](http://jezis.koding.io/#).
+
 ![screenshot](https://raw.githubusercontent.com/krablak/global.hackathon/master/screen1.jpg "A motivation screenshot from the final application:)")
 
 Many people are not aware of the fact that there have already been more than 2000 nuclear
