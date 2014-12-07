@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ntm_ui_player.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>ntm_ui_player.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/**
+ * NTM UI player logic module.
+ */</span>
+<span class="hljs-keyword">var</span> ntmUI = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(module)</span> </span>{
+
+	<span class="hljs-comment">/**
+	 * Represents controller module of explosions animations.
+	 */</span>
+	<span class="hljs-built_in">module</span>.player = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(player)</span> </span>{
+
+		<span class="hljs-comment">/**
+		 * Simple flag marking player as playing.
+		 */</span>
+		player.play = <span class="hljs-literal">false</span>;
+
+		<span class="hljs-comment">/**
+		 * Reference to currently animated shape.
+		 */</span>
+		player.currentShapeIndex = -<span class="hljs-number">1</span>;
+		player.allShapes = [];
+
+		<span class="hljs-comment">/**
+		 * Reference to player control button.
+		 */</span>
+		player.controlBtn = <span class="hljs-literal">null</span>;
+
+		<span class="hljs-comment">/**
+		 * Performs player UI components initialization.
+		 */</span>
+		player.init = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+			player.controlBtn = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"slider-control-btn"</span>);
+			player.controlBtn.addEventListener(<span class="hljs-string">"click"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+				<span class="hljs-keyword">if</span> (player.play === <span class="hljs-literal">true</span>) {
+					player.controlBtn.setAttribute(<span class="hljs-string">"class"</span>, <span class="hljs-string">"icon-play"</span>);
+					player.stop();
+				} <span class="hljs-keyword">else</span> {
+					player.controlBtn.setAttribute(<span class="hljs-string">"class"</span>, <span class="hljs-string">"icon-pause"</span>);
+					player.start();
+				}
+			});
+		};
+
+		<span class="hljs-comment">/**
+		 * Starts animation with given explosions data.
+		 * @param {Object} data
+		 */</span>
+		player.start = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Mark player as playing</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			player.play = <span class="hljs-literal">true</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Set new data shapes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			<span class="hljs-keyword">if</span> (data != <span class="hljs-literal">undefined</span>) {
+				player.allShapes = data;
+			}
+
+			<span class="hljs-keyword">var</span> animateNext = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+				<span class="hljs-keyword">var</span> curShape = nextShape();
+				<span class="hljs-keyword">if</span> (curShape != <span class="hljs-literal">null</span> &amp;&amp; player.play) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Notify other views about new shape animation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>					setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+						ntmInfoView.onDataShapeShow(curShape);
+						ntmYearView.onDataShapeShow(curShape);
+						ntmSlider.onDataShapeShow(curShape);
+					}, <span class="hljs-number">1</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Add explosion shape to data</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>					curShape = dataToShape(curShape);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Run explosion animation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>					ntmAni.animateExplosion(curShape.shape, ntmConvert.yieldToMap(curShape));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Remove shape from data item - after animation is no longer needed.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>					removeShape(curShape);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>In case that next shape is available schedule next explosion animation execution</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>					<span class="hljs-keyword">if</span> (hasNextShape()) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Compute time of next animation explosion delay</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>						<span class="hljs-keyword">var</span> nextShapeAnimationDelay = ntmConvert.toDelay(curShape, player.allShapes[player.currentShapeIndex + <span class="hljs-number">1</span>]);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Plan next run of animate function execution</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>						setTimeout(animateNext, nextShapeAnimationDelay);
+					}
+				}
+			};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Start animation</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			animateNext();
+		};
+
+		<span class="hljs-comment">/**
+		 * Stops player and continues fro first data item for passed year.
+		 */</span>
+		player.switchTo = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(year)</span> </span>{
+			<span class="hljs-built_in">console</span>.log(year);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Find first dataShape with given year</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			<span class="hljs-keyword">var</span> yearIdx = <span class="hljs-number">0</span>;
+			<span class="hljs-keyword">var</span> wasFound = <span class="hljs-literal">false</span>;
+			<span class="hljs-keyword">for</span> (; yearIdx &lt; player.allShapes.length; yearIdx++) {
+				<span class="hljs-keyword">var</span> curShape = player.allShapes[yearIdx];
+				<span class="hljs-keyword">if</span> (curShape.d !== <span class="hljs-literal">undefined</span> &amp;&amp; curShape.d.indexOf(year) == <span class="hljs-number">0</span>) {
+					wasFound = <span class="hljs-literal">true</span>;
+					<span class="hljs-keyword">break</span>;
+				}
+			}
+			<span class="hljs-keyword">if</span> (wasFound === <span class="hljs-literal">true</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Stop player</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				player.stop();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Update player current shape index</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				player.currentShapeIndex = yearIdx;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Start player again</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				player.start();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Update button icon</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				player.controlBtn.setAttribute(<span class="hljs-string">"class"</span>, <span class="hljs-string">"icon-pause"</span>);
+			}
+		};
+
+		<span class="hljs-comment">/**
+		 * Stops player when performing animations.
+		 */</span>
+		player.stop = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+			player.play = <span class="hljs-literal">false</span>;
+		};
+
+		<span class="hljs-comment">/**
+		 * Adds shape do data item.
+		 */</span>
+		<span class="hljs-keyword">var</span> dataToShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataItem)</span> </span>{
+			<span class="hljs-keyword">if</span> (dataItem[<span class="hljs-string">"shape"</span>] === <span class="hljs-literal">undefined</span>) {
+				<span class="hljs-keyword">var</span> shapeOpts = {
+					strokeColor : <span class="hljs-string">'#FF00EE'</span>,
+					strokeOpacity : <span class="hljs-number">0.6</span>,
+					strokeWeight : <span class="hljs-number">0</span>,
+					fillColor : <span class="hljs-string">'#FF3333'</span>,
+					fillOpacity : <span class="hljs-number">0.35</span>,
+					map : <span class="hljs-built_in">module</span>.map,
+					center : <span class="hljs-keyword">new</span> google.maps.LatLng(dataItem.a, dataItem.b), <span class="hljs-comment">/* a and b are latitude and longitude*/</span>
+					radius : <span class="hljs-number">1</span> <span class="hljs-comment">// Default radius is set to 0 to be hidden before animation</span>
+				};
+				dataItem[<span class="hljs-string">"shape"</span>] = <span class="hljs-keyword">new</span> google.maps.Circle(shapeOpts);
+			}
+			<span class="hljs-keyword">return</span> dataItem;
+		};
+
+		<span class="hljs-comment">/**
+		 * Removes shape from data item.
+		 */</span>
+		<span class="hljs-keyword">var</span> removeShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dataItem)</span> </span>{
+			dataItem[<span class="hljs-string">"shape"</span>] = <span class="hljs-literal">undefined</span>;
+		};
+
+		<span class="hljs-comment">/**
+		 * Returns next shape to be displayes or null;
+		 */</span>
+		<span class="hljs-keyword">var</span> nextShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+			<span class="hljs-keyword">var</span> nShape = <span class="hljs-literal">null</span>;
+			player.currentShapeIndex = player.currentShapeIndex + <span class="hljs-number">1</span>;
+			<span class="hljs-keyword">if</span> (player.allShapes[player.currentShapeIndex] != <span class="hljs-literal">undefined</span>) {
+				nShape = player.allShapes[player.currentShapeIndex];
+			}
+			<span class="hljs-keyword">return</span> nShape;
+		};
+
+		<span class="hljs-comment">/**
+		 * Returns true in case that next shape can be shown.
+		 */</span>
+		<span class="hljs-keyword">var</span> hasNextShape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+			<span class="hljs-keyword">return</span> player.allShapes[player.currentShapeIndex + <span class="hljs-number">1</span>] != <span class="hljs-literal">undefined</span>;
+		};
+
+		<span class="hljs-keyword">return</span> player;
+	}(<span class="hljs-built_in">module</span>.player || {});
+
+	<span class="hljs-keyword">return</span> <span class="hljs-built_in">module</span>;
+}(ntmUI || {});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

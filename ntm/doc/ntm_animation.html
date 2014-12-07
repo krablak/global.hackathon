@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ntm_animation.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>ntm_animation.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/**
+ * Provides simple animation function to visualise explosions on google map.
+ */</span>
+<span class="hljs-keyword">var</span> ntmAni = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(module, easing)</span> </span>{
+
+	<span class="hljs-comment">/**
+	 * Default steps count in animation function
+	 */</span>
+	<span class="hljs-keyword">var</span> stepsCnt = <span class="hljs-number">10</span>;
+
+	<span class="hljs-comment">/**
+	 * Private function containing the core logic of animation function.
+	 */</span>
+	<span class="hljs-keyword">var</span> step = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(circle, stepNumber, targetSize)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Prepare variables for current animation step</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		stepNumber = stepNumber + <span class="hljs-number">1</span>;
+		<span class="hljs-keyword">var</span> radius = circle.radius;
+
+		<span class="hljs-keyword">var</span> easingValue = easing.easeOutQuad(stepNumber / stepsCnt);
+		<span class="hljs-keyword">var</span> newRadius = targetSize * easingValue;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Set the new radius to circle</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		circle.set(<span class="hljs-string">"radius"</span>, newRadius);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>In case that animation target size was not reached, plan the next animation step</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		<span class="hljs-keyword">if</span> (newRadius &lt; targetSize) {
+			setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+				step(circle, stepNumber, targetSize);
+			}, <span class="hljs-number">20</span>);
+		} <span class="hljs-keyword">else</span> {
+			setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+				circle.setMap(<span class="hljs-literal">null</span>);
+			}, <span class="hljs-number">500</span>);
+		}
+	};
+
+	<span class="hljs-comment">/**
+	 * Animates the explosion using passed circle shape.
+	 * @param {Object} circle reference to map circle object which will represents the explosion.
+	 * @param {Object} targetSize target size of explosion.
+	 */</span>
+	<span class="hljs-built_in">module</span>.animateExplosion = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(circle, targetSize)</span> </span>{
+		step(circle, <span class="hljs-number">0</span>, targetSize);
+	};
+
+	<span class="hljs-keyword">return</span> <span class="hljs-built_in">module</span>;
+}(ntmAni || {}, EasingFunctions);</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

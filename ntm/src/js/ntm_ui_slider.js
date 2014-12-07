@@ -32,7 +32,7 @@ var ntmSlider = function(module) {
 			var element = document.createElement('span');
 			element.setAttribute("id", "years-" + slider_ints[i]);
 			var classes = "slider-year";
-			if (i == 0) {
+			if (i === 0) {
 				classes = classes + " active";
 			} else if (test_years.indexOf(i) > -1) {
 				classes = classes + " passive";
@@ -56,14 +56,14 @@ var ntmSlider = function(module) {
 			};
 
 			var tooltip = "";
-			for (country in testNumbers[1945 + i]) {
+			for (var country in testNumbers[1945 + i]) {
 				tooltip += tooltipCountries[country] + ": " + testNumbers[1945+i][country] + ", ";
 				//slider_years[i].US;
 				//tooltip += "<img src='../img/"+country+".png' alt=''/> "+testNumbers[1945+i][country]+", "; //slider_years[i].US;
 			}
 
-			if (tooltip == "") {
-				tooltip = "No nuclear tests were cunducted this year.."
+			if (tooltip === "") {
+				tooltip = "No nuclear tests were cunducted this year..";
 			}
 
 			var ttl = tooltip.length - 2;
@@ -85,8 +85,8 @@ var ntmSlider = function(module) {
 		var classes = "slider-year";
 
 		for (var i = 0; i < 52; i++) {
-			var element = document.getElementById("years-" + (test_years[i]));
-			element.setAttribute("class", classes + " passive");
+			var curElement = document.getElementById("years-" + (test_years[i]));
+			curElement.setAttribute("class", classes + " passive");
 		}
 
 		var element = document.getElementById("years-" + dataShape.dstr.substring(0, 4));
