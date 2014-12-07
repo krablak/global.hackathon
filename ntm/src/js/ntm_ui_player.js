@@ -84,6 +84,33 @@ var ntmUI = function(module) {
 		 */
 		player.switchTo = function(year) {
 			console.log(year);
+			// Find first dataShape with given year
+			var yearIdx = 0;
+			var wasFound = false;
+			for (; yearIdx < player.allShapes.length; yearIdx++) {
+				var curShape = player.allShapes[yearIdx];
+				if (curShape.d !== undefined && curShape.d.indexOf(year) == 0) {
+					wasFound = true;
+					break;
+				}
+			}
+			if (wasFound === true) {
+				// Stop player
+				player.stop();
+				// Update player current shape index
+				player.currentShapeIndex = yearIdx;
+				// Start player again
+				player.start();
+				// Update button icon
+				player.controlBtn.setAttribute("class", "icon-pause");
+			}
+		};
+
+		/**
+		 * Stops player when performing animations.
+		 */
+		player.stop = function() {
+			player.play = false;
 		};
 
 		/**
@@ -123,13 +150,6 @@ var ntmUI = function(module) {
 		 */
 		var hasNextShape = function() {
 			return player.allShapes[player.currentShapeIndex + 1] != undefined;
-		};
-
-		/**
-		 * Stops player when performing animations.
-		 */
-		player.stop = function() {
-			player.play = false;
 		};
 
 		return player;

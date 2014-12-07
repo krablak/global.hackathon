@@ -19,7 +19,8 @@ body {
 
 #info-div {
 	position: absolute;
-	background-color: #ffffff;
+	background-color: rgba(165,165,165,0.3);
+	color: #efefef;
 	width: 35%;
 	height: 20%;
 	bottom: 80px;
@@ -95,6 +96,7 @@ body {
 	padding: 3px;
 	margin-right: 3px;
 	color: #A5A5A5;
+	cursor: pointer;
 	background-color: transparent;
 }
 
