@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<title>NTM</title>
 		<link rel="stylesheet" type="text/css" href="../src/css/basic.css" />
-        <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		<script src="../src/js/easing_fns.js"></script>
 		<script src="../src/js/ntm_animation.js"></script>
@@ -23,11 +23,23 @@
 			<div id="wrapper">
 				<div id="map-canvas"></div>
 				<div id="welcome-view-div" class="centered">
-					<div>Welcome</div>
-					<div><a id="next-btn" href="#">Next</a></div>
+					<div class="welcome-message-title">
+						<h1>Welcome</h1>
+					</div>
+					<div class="welcome-message">
+						<p>
+							Mauris tempus elit odio, a tincidunt nisi efficitur a. Curabitur accumsan felis eu augue consequat euismod. Nunc porttitor, urna a ultrices lacinia, augue velit consectetur erat, eu interdum lacus justo ut sapien. Donec dignissim a sem vel accumsan.
+						</p>
+						<p>
+							Mauris tempus elit odio, a tincidunt nisi efficitur a. Curabitur accumsan felis eu augue consequat euismod. Nunc porttitor, urna a ultrices lacinia, augue velit consectetur erat, eu interdum lacus justo ut sapien. Donec dignissim a sem vel accumsan.
+						</p>
+					</div>
+					<div>
+						<img id="loading-img" src="../src/img/ajax-loader.gif"/>
+						<a id="next-btn" href="#">Next</a>
+					</div>
 				</div>
-				<div id="year-view-div">
-				</div>
+				<div id="year-view-div"></div>
 				<div id="time-slider-div">
 					Date Slider
 				</div>

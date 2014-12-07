@@ -54,12 +54,13 @@ body {
 }
 
 #next-btn{
-	visibility: hidden;
+	display: none;
 }
 
 #welcome-view-div {
 	position: absolute;
 	background-color: white;
+	overflow: auto;
 	padding: 10px;
 	z-index: 200;
 	top: 25%;
