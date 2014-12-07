@@ -20,6 +20,27 @@ var ntmUI = function(module) {
 		player.allShapes = [];
 
 		/**
+		 * Reference to player control button.
+		 */
+		player.controlBtn = null;
+
+		/**
+		 * Performs player UI components initialization.
+		 */
+		player.init = function() {
+			player.controlBtn = document.getElementById("slider-control-btn");
+			player.controlBtn.addEventListener("click", function() {
+				if (player.play === true) {
+					player.controlBtn.innerText = "Play";
+					player.stop();
+				} else {
+					player.controlBtn.innerText = "Pause";
+					player.start();
+				}
+			});
+		};
+
+		/**
 		 * Starts animation with given explosions data.
 		 * @param {Object} data
 		 */
@@ -27,7 +48,9 @@ var ntmUI = function(module) {
 			// Mark player as playing
 			player.play = true;
 			// Set new data shapes
-			player.allShapes = data;
+			if (data != undefined) {
+				player.allShapes = data;
+			}
 
 			var animateNext = function() {
 				var curShape = nextShape();
