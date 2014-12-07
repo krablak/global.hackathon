@@ -32,6 +32,8 @@ var ntmWelcomeView = function(module) {
 		ntmInfoView.init();
 		// Init year view
 		ntmYearView.init();
+		// Init animation player
+		ntmUI.player.init();
 		
 		//Start animations
 		ntmUI.player.start(ntmUI.dataShapes);

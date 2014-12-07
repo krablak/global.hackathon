@@ -22,7 +22,7 @@ body {
 	background-color: #ffffff;
 	width: 35%;
 	height: 20%;
-	bottom: 7%;
+	bottom: 80px;
 	right: 0%;
 	z-index: 99;
 	padding: 10px;
@@ -68,9 +68,9 @@ body {
 #time-slider-div {
 	position: absolute;
 	background-color: #ffffff;
-	width: 80%;
-	bottom: 0%;
-	left: 10%;
+	width: 100%;
+	bottom: 30px;
+	left: 0%;
 	z-index: 99;
 	padding: 10px;
 	visibility: hidden;
