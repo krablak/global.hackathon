@@ -65,6 +65,8 @@ var ntmUI = function(module) {
 					curShape = dataToShape(curShape);
 					// Run explosion animation
 					ntmAni.animateExplosion(curShape.shape, ntmConvert.yieldToMap(curShape));
+					// Remove shape from data item - after animation is no longer needed.
+					removeShape(curShape);
 					// In case that next shape is available schedule next explosion animation execution
 					if (hasNextShape()) {
 						// Compute time of next animation explosion delay
@@ -131,6 +133,13 @@ var ntmUI = function(module) {
 				dataItem["shape"] = new google.maps.Circle(shapeOpts);
 			}
 			return dataItem;
+		};
+
+		/**
+		 * Removes shape from data item.
+		 */
+		var removeShape = function(dataItem) {
+			dataItem["shape"] = undefined;
 		};
 
 		/**
