@@ -6,6 +6,82 @@
 
 var ntmDataApi = function(module) {
 
+    module.loadTestTypes = function() {
+        return {
+                      "AIRD" : "airdrop",
+                      "AIRB" : "air-blast",
+                      "ART" : "artillery shell",
+                      "ATMO" : "in or above the atmosphere",
+                      "BALN" : "balloon",
+                      "BARG" : "barge",
+                      "CRAT" : "crater",
+                      "RC"  : "roman candle",
+                      "ROCK" : "rocket",
+                      "SHFT" : "stemmed ver. shaft",
+                      "SS1" : "simultaneous shot",
+                      "SS2" : "simultaneous shot",
+                      "SS3" : "simultaneous shot",
+                      "SS4" : "simultaneous shot",
+                      "SS5" : "simultaneous shot",
+                      "SS6" : "simultaneous shot",
+                      "SURF" : "surface",
+                      "TOWR" : "tower",
+                      "SHIP" : "ship",
+                      "TUNN" : "tunnel",
+                      "UNDW" : "underwater",
+                      "UNDG" : "underground",
+                      "SH?" : "shaft",
+                      "MINE" : "mine",
+                      "SUR?" : "surface",
+                      "TUN1" : "tunnel",
+                      "" : "",
+        };
+    };
+
+
+    module.loadTestSites = function() {
+        return {
+                      "ANM" : "Alamogordo (USA)",
+                      "HRJ" : "Hiroshima (Japan)",
+                      "NGJ" : "Nagasaki (Japan)",
+                      "BKN" : "Bikini atoll",
+                      "ENW" : "Enwetak atoll",
+                      "CNV" : "Central Nevada (USA)",
+                      "NTS" : "Nevada Test Site (USA)",
+                      "FMT" : "Farmington (USA)",
+                      "MBI" : "Monte Bello Islands (Australia)",
+                      "EMU" : "Emu Field (Australia)",
+                      "PAC" : "Pacific Ocean",
+                      "MAR" : "Maralinga (Australia)",
+                      "CHR" : "Christmas Island",
+                      "NZ"  : "Novaya Zemlya (USSR)",
+                      "KTS" : "Semipalitinsk (USSR)",
+                      "REG" : "Reggane (Algeria)",
+                      "ECK" : "Ecker (Algeria)",
+                      "CLS" : "Carlsbad (USA)",
+                      "JON" : "Johnston Island",
+                      "FAL" : "Fallon (USA)",
+                      "LNR" : "Lop Nor (China)",
+                      "AMC" : "Amchitka Island (USA)",
+                      "MUR" : "Muruora Island",
+                      "FAN" : "Fangataufa Island",
+                      "HTB" : "Hattiesburg  (USA)",
+                      "GRV" : "Grand Valley (USA)",
+                      "RAJ" : "Rajasthan Desert (India)",
+                      "?IN" : "Indian Ocean",
+                      "RFL" : "Rifle (USA)",
+                      "SAT" : "Atlantic Ocean",
+                      "MAL" : "Malden Island",
+                      "KPY" : "Kapustin Yar (USSR)",
+                      "SYS" : "Sary Shagan (USSR)",
+                      "RPK" : "Ras Koh (Pakistan)",
+                      "PER" : "Punggye-ri (DPRK)",
+                      "" : "None"
+                };
+
+    };
+
+
 	module.loadTestNumbers = function() {
 	    return {"1945" : {'US': 3},
                 "1946" : {'US': 2},
