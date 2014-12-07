@@ -65,7 +65,7 @@ a:visited {
 }
 
 #welcome-view-div {
-	background-color: rgba(30,30,30,0.8); /*rgba(165,165,165,0.4);*/
+	background-color: rgba(30,30,30,0.8);
 	color: #A5A5A5;
 	font: "Lucida Console", Monaco, monospace;
 	position: absolute;
@@ -130,6 +130,15 @@ a:visited {
 
 .slider_div {
 
+}
+
+#header-note {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: #FFFFFF;
+	background-color: transparent;
+	z-index: 99;
 }
 
 
