@@ -19,8 +19,10 @@ body {
 
 #info-div {
 	position: absolute;
-	background-color: rgba(80,80,80,0.5); /*rgba(165,165,165,0.5);*/
+	background-color: rgba(40,40,40,0.8); /*rgba(165,165,165,0.5);*/
 	color: #A5A5A5;
+	font: "Lucida Console", Monaco, monospace;
+	font-size: 75%;
 	width: 35%;
 	height: 20%;
 	bottom: 80px;
@@ -30,6 +32,7 @@ body {
 	overflow: auto;
 	visibility: hidden;
 }
+
 
 #year-view-div {
 	position: absolute;
