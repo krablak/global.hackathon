@@ -142,6 +142,82 @@ var ntmConvert = function(module) {
 
 var ntmDataApi = function(module) {
 
+    module.loadTestTypes = function() {
+        return {
+                      "AIRD" : "airdrop",
+                      "AIRB" : "air-blast",
+                      "ART" : "artillery shell",
+                      "ATMO" : "in or above the atmosphere",
+                      "BALN" : "balloon",
+                      "BARG" : "barge",
+                      "CRAT" : "crater",
+                      "RC"  : "roman candle",
+                      "ROCK" : "rocket",
+                      "SHFT" : "stemmed ver. shaft",
+                      "SS1" : "simultaneous shot",
+                      "SS2" : "simultaneous shot",
+                      "SS3" : "simultaneous shot",
+                      "SS4" : "simultaneous shot",
+                      "SS5" : "simultaneous shot",
+                      "SS6" : "simultaneous shot",
+                      "SURF" : "surface",
+                      "TOWR" : "tower",
+                      "SHIP" : "ship",
+                      "TUNN" : "tunnel",
+                      "UNDW" : "underwater",
+                      "UNDG" : "underground",
+                      "SH?" : "shaft",
+                      "MINE" : "mine",
+                      "SUR?" : "surface",
+                      "TUN1" : "tunnel",
+                      "" : "",
+        };
+    };
+
+
+    module.loadTestSites = function() {
+        return {
+                      "ANM" : "Alamogordo (USA)",
+                      "HRJ" : "Hiroshima (Japan)",
+                      "NGJ" : "Nagasaki (Japan)",
+                      "BKN" : "Bikini atoll",
+                      "ENW" : "Enwetak atoll",
+                      "CNV" : "Central Nevada (USA)",
+                      "NTS" : "Nevada Test Site (USA)",
+                      "FMT" : "Farmington (USA)",
+                      "MBI" : "Monte Bello Islands (Australia)",
+                      "EMU" : "Emu Field (Australia)",
+                      "PAC" : "Pacific Ocean",
+                      "MAR" : "Maralinga (Australia)",
+                      "CHR" : "Christmas Island",
+                      "NZ"  : "Novaya Zemlya (USSR)",
+                      "KTS" : "Semipalitinsk (USSR)",
+                      "REG" : "Reggane (Algeria)",
+                      "ECK" : "Ecker (Algeria)",
+                      "CLS" : "Carlsbad (USA)",
+                      "JON" : "Johnston Island",
+                      "FAL" : "Fallon (USA)",
+                      "LNR" : "Lop Nor (China)",
+                      "AMC" : "Amchitka Island (USA)",
+                      "MUR" : "Muruora Island",
+                      "FAN" : "Fangataufa Island",
+                      "HTB" : "Hattiesburg  (USA)",
+                      "GRV" : "Grand Valley (USA)",
+                      "RAJ" : "Rajasthan Desert (India)",
+                      "?IN" : "Indian Ocean",
+                      "RFL" : "Rifle (USA)",
+                      "SAT" : "Atlantic Ocean",
+                      "MAL" : "Malden Island",
+                      "KPY" : "Kapustin Yar (USSR)",
+                      "SYS" : "Sary Shagan (USSR)",
+                      "RPK" : "Ras Koh (Pakistan)",
+                      "PER" : "Punggye-ri (DPRK)",
+                      "" : "None"
+                };
+
+    };
+
+
 	module.loadTestNumbers = function() {
 	    return {"1945" : {'US': 3},
                 "1946" : {'US': 2},
@@ -2297,11 +2373,15 @@ google.maps.event.addDomListener(window, 'load', ntmUI.init);
 var ntmInfoView = function(module) {
 
 	module.infoViewElem = null;
+    var testSites = null;
+    var testTypes = null;
 
 	module.init = function() {
 		module.infoViewElem = document.getElementById("info-div");
 		module.infoViewElem.style.visibility = "visible";
 		module.infoViewElem.innerHTML = "";
+		testSites = ntmDataApi.loadTestSites();
+		testTypes = ntmDataApi.loadTestTypes();
 	};
 
 	module.onDataShapeShow = function(dataShape) {
@@ -2314,7 +2394,11 @@ var ntmInfoView = function(module) {
 	 */
 	var appendLine = function(dataShape) {
 		var newLineDiv = document.createElement("div");
-		newLineDiv.innerHTML = dataShape.dstr + "<img src='"+"img/"+dataShape.c+".png' alt=''/>";
+		var flag_path = "img/"+dataShape.c+".png";
+		console.log(flag_path);
+		var cont = "<img src='"+flag_path+"' style='vertical-align:middle;' alt='flag'/> " + dataShape.dstr+", ";
+		cont += dataShape.n+" ("+dataShape.y+"kt), "+testSites[dataShape.s]+", "+testTypes[dataShape.tt];
+		newLineDiv.innerHTML = cont;
 		module.infoViewElem.appendChild(newLineDiv);
 	};
 

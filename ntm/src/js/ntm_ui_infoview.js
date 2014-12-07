@@ -25,10 +25,10 @@ var ntmInfoView = function(module) {
 	 */
 	var appendLine = function(dataShape) {
 		var newLineDiv = document.createElement("div");
-		var flag_path = "../src/img/"+dataShape.c+".png";
+		var flag_path = "img/"+dataShape.c+".png";
 		console.log(flag_path);
 		var cont = "<img src='"+flag_path+"' style='vertical-align:middle;' alt='flag'/> " + dataShape.dstr+", ";
-		cont += dataShape.n+" ("+dataShape.y+"kt), "+testSites[dataShape.s]+", "+testTypes[dataShape.tt]
+		cont += dataShape.n+" ("+dataShape.y+"kt), "+testSites[dataShape.s]+", "+testTypes[dataShape.tt];
 		newLineDiv.innerHTML = cont;
 		module.infoViewElem.appendChild(newLineDiv);
 	};
