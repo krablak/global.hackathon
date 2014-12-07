@@ -9,6 +9,18 @@ body {
 	padding: 0px
 }
 
+a {
+	color: #FF0000;
+}
+
+a:visited {
+	color: #FF0000;
+}
+
+.next-link {
+	font-size: 40px;
+}
+
 #map-canvas {
 	position: absolute;
 	top: 0px;
