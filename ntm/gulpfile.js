@@ -5,7 +5,6 @@ var plumber = require('gulp-plumber');
 var jshint = require('gulp-jshint');
 var jshintstylish = require('jshint-stylish');
 var concat = require('gulp-concat');
-var docco = require("gulp-docco");
 var del = require('del');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
@@ -27,10 +26,6 @@ var paths = {
 // Development watch task for JS hinting
 gulp.task('devel', function() {
 	gulp.watch([paths.src.js, paths.src.tests], ['jshint', 'doc']);
-});
-
-gulp.task('doc', function() {
-	gulp.src(paths.src.js).pipe(docco()).pipe(gulp.dest('./doc'));
 });
 
 gulp.task('clean', function(cb) {
