@@ -4,7 +4,7 @@
 
 ### Authors
 
-Michal Ráček and Radek Hofman
+Michal Ráček and Radek Hofman a.k.a. [PyJunkies](https://github.com/krablak/global.hackathon/blob/master/Teams/PyJunkies/ABOUT.md) team
 
 #### In which category do we take part in?
 
