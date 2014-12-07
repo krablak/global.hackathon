@@ -87,6 +87,18 @@ body {
 	padding-bottom: 3px;
 }
 
+#player-controls {
+	float: left;
+}
+
+#slider-control-btn {
+	padding: 3px;
+	margin-right: 3px;
+	color: #A5A5A5;
+	background-color: transparent;
+	visibility: visible;
+}
+
 .slider-year.passive {
 	background-color: #FF0000;
 }

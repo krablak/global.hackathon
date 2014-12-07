@@ -31,10 +31,10 @@ var ntmUI = function(module) {
 			player.controlBtn = document.getElementById("slider-control-btn");
 			player.controlBtn.addEventListener("click", function() {
 				if (player.play === true) {
-					player.controlBtn.innerText = "Play";
+					player.controlBtn.setAttribute("class","icon-play");
 					player.stop();
 				} else {
-					player.controlBtn.innerText = "Pause";
+					player.controlBtn.setAttribute("class","icon-pause");
 					player.start();
 				}
 			});
