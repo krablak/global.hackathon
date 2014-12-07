@@ -31,10 +31,10 @@ var ntmUI = function(module) {
 			player.controlBtn = document.getElementById("slider-control-btn");
 			player.controlBtn.addEventListener("click", function() {
 				if (player.play === true) {
-					player.controlBtn.setAttribute("class","icon-play");
+					player.controlBtn.setAttribute("class", "icon-play");
 					player.stop();
 				} else {
-					player.controlBtn.setAttribute("class","icon-pause");
+					player.controlBtn.setAttribute("class", "icon-pause");
 					player.start();
 				}
 			});
@@ -77,6 +77,13 @@ var ntmUI = function(module) {
 
 			// Start animation
 			animateNext();
+		};
+
+		/**
+		 * Stops player and continues fro first data item for passed year.
+		 */
+		player.switchTo = function(year) {
+			console.log(year);
 		};
 
 		/**

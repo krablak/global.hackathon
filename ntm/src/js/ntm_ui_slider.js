@@ -10,15 +10,20 @@ var ntmSlider = function(module) {
 	// years with a nuclear test
 	var test_years = [1945, 1946, 1948, 1949, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1994, 1995, 1996, 1998, 2006, 2009, 2013];
 
+	/**
+	 * Slider div with year spans.
+	 */
+	module.sliElem = null;
+
 	var toYear = function(num) {
 		return slider_years[num].substring(2, 4);
 	};
 
 	module.init = function() {
-		var sliElem = document.getElementById("slider-content");
-		sliElem.style.visibility = "visible";
+		module.sliElem = document.getElementById("slider-content");
+		module.sliElem.style.visibility = "visible";
 		document.getElementById("slider-control-btn").style.visibility = "visible";
-		sliElem.innerHTML = "";
+		module.sliElem.innerHTML = "";
 
 		var year0 = 1945;
 
@@ -35,11 +40,19 @@ var ntmSlider = function(module) {
 			}
 			element.setAttribute("class", classes);
 			element.setAttribute("data-year", (i).toString());
+			element.setAttribute("data-switch-to-year", slider_ints[i]);
 			element.setAttribute("tooltip", (i).toString());
 			element.textContent = toYear(i);
 
-			sliElem.appendChild(element);
+			module.sliElem.appendChild(element);
 		}
+
+		// Add onclick handler for switching to slider year.
+		module.sliElem.addEventListener("click", function(e) {
+			var switchYear = e.toElement.getAttribute("data-switch-to-year");
+			ntmUI.player.switchTo(switchYear);
+		});
+
 	};
 
 	module.onDataShapeShow = function(dataShape) {
