@@ -68,8 +68,9 @@ body {
 #time-slider-div {
 	position: absolute;
 	background-color: #ffffff;
-	width: 100%;
+	width: 90%;
 	bottom: 0%;
+	left: 10%;
 	z-index: 99;
 	padding: 10px;
 	visibility: hidden;
