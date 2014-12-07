@@ -19,8 +19,8 @@ body {
 
 #info-div {
 	position: absolute;
-	background-color: rgba(165,165,165,0.3);
-	color: #efefef;
+	background-color: rgba(80,80,80,0.5); /*rgba(165,165,165,0.5);*/
+	color: #A5A5A5;
 	width: 35%;
 	height: 20%;
 	bottom: 80px;
