@@ -33,7 +33,6 @@ body {
 	visibility: hidden;
 }
 
-
 #year-view-div {
 	position: absolute;
 	font-size: 50px;
@@ -54,14 +53,16 @@ body {
 }
 
 #welcome-view-div {
+	background-color: rgba(30,30,30,0.8); /*rgba(165,165,165,0.4);*/
+	color: #A5A5A5;
+	font: "Lucida Console", Monaco, monospace;
 	position: absolute;
-	background-color: white;
 	overflow: auto;
 	padding: 10px;
 	z-index: 200;
-	top: 25%;
+	top: 20%;
 	left: 25%;
-	height: 50%;
+	height: 60%;
 	width: 50%;
 }
 
