@@ -56,7 +56,12 @@ def parse_text_file(filename):
                 #print "stored", test_name
             else:
                 #parsing date
-                year = 1900+int(line[:2])
+                year_s = int(line[:2])
+                if year_s < 40:
+                    year = 2000+year_s
+                else:
+                    year = 1900+year_s
+
                 month = int(line[2:4])
                 day = int(line[4:6])
 
@@ -78,7 +83,8 @@ def parse_text_file(filename):
                     "IN" : "India",
                     "PC" : "People's Republic of China",
                     "IS" : "Israel",
-                    "PK" : "Pakistan"
+                    "PK" : "Pakistan",
+                    "NK" : "North Korea"
                 }
 
                 country_code = line[16:18]
@@ -119,6 +125,8 @@ def parse_text_file(filename):
                       "MAL" : "Malden Island (UK atmospheric tests)",
                       "KPY" : "Kapustin Yar (USSR)",
                       "SYS" : "Sary Shagan (USSR)",
+                      "RPK" : "Ras Koh, Pakistan",
+                      "PER" : "Punggye-ri Test Site, North Korea",
                       "" : "None"
                 }
 
@@ -341,7 +349,7 @@ def main():
     show_yield_distribution(yields)
 
     output = "["
-    for i in range(last_index):
+    for i in range(last_index+1):
         output += tests["%d" % i].__repr__()+",\n"
     output += "]"
 
