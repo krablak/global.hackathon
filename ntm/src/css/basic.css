@@ -88,13 +88,17 @@ body {
 }
 
 .slider-year.passive {
-	background-color: #FF0000;
+	background-color: #A5A5A5;
 }
 
 .slider-year.active {
-	background-color: #00FF00;
+	background-color: #FF0000;
 }
 
 .slider-year.notest {
-	background-color: #0000FF;
+	background-color: #4D4D4D;
+}
+
+.slider_div {
+
 }
