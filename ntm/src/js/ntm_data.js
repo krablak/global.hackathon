@@ -17,7 +17,7 @@ var ntmDataApi = function(module) {
                       "CRAT" : "crater",
                       "RC"  : "roman candle",
                       "ROCK" : "rocket",
-                      "SHFT" : "stemmed ver. shaft",
+                      "SHFT" : "stemmed vert. shaft",
                       "SS1" : "simultaneous shot",
                       "SS2" : "simultaneous shot",
                       "SS3" : "simultaneous shot",
