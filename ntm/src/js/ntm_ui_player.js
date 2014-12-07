@@ -32,12 +32,14 @@ var ntmUI = function(module) {
 			var animateNext = function() {
 				var curShape = nextShape();
 				if (curShape != null && player.play) {
-					// Notify info view about new shape animation
+					// Notify other views about new shape animation
 					setTimeout(function() {
 						ntmInfoView.onDataShapeShow(curShape);
 						ntmYearView.onDataShapeShow(curShape);
 						ntmSlider.onDataShapeShow(curShape);
 					}, 1);
+					// Add explosion shape to data
+					curShape = dataToShape(curShape);
 					// Run explosion animation
 					ntmAni.animateExplosion(curShape.shape, ntmConvert.yieldToMap(curShape));
 					// In case that next shape is available schedule next explosion animation execution
@@ -50,7 +52,28 @@ var ntmUI = function(module) {
 				}
 			};
 
+			// Start animation
 			animateNext();
+		};
+
+		/**
+		 * Adds shape do data item.
+		 */
+		var dataToShape = function(dataItem) {
+			if (dataItem["shape"] === undefined) {
+				var shapeOpts = {
+					strokeColor : '#FF00EE',
+					strokeOpacity : 0.6,
+					strokeWeight : 0,
+					fillColor : '#FF3333',
+					fillOpacity : 0.35,
+					map : module.map,
+					center : new google.maps.LatLng(dataItem.a, dataItem.b), /* a and b are latitude and longitude*/
+					radius : 1 // Default radius is set to 0 to be hidden before animation
+				};
+				dataItem["shape"] = new google.maps.Circle(shapeOpts);
+			}
+			return dataItem;
 		};
 
 		/**

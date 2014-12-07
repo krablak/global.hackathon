@@ -37,7 +37,7 @@ var ntmSlider = function(module) {
 	    var classes = "slider-year";
 
 	    for (var i = 0; i < 68; i++) {
-	        var element = document.getElementById("years-"+(i+45))
+	        var element = document.getElementById("years-"+(i+45));
 	        element.setAttribute("class", classes + " passive");
 	    }
 
