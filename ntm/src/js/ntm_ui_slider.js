@@ -24,7 +24,7 @@ var ntmSlider = function(module) {
 		module.sliElem.style.visibility = "visible";
 		document.getElementById("slider-control-btn").style.visibility = "visible";
 		module.sliElem.innerHTML = "";
-        var testNumbers = ntmDataApi.loadTestNumbers();
+		var testNumbers = ntmDataApi.loadTestNumbers();
 
 		var year0 = 1945;
 
@@ -43,30 +43,31 @@ var ntmSlider = function(module) {
 			element.setAttribute("data-year", (i).toString());
 			element.setAttribute("data-switch-to-year", slider_ints[i]);
 
-            tooltipCountries = {
-                "US" : "USA",
-                "FR" : "France",
-                "PC" : "China",
-                "PK" : "Pakistan",
-                "NK" : "DPRK",
-                "CP" : "CPPP",
-                "IS" : "Israel (alleged)",
-                "IN" : "India",
-                "GB" : "UK"
-            }
+			tooltipCountries = {
+				"US" : "USA",
+				"FR" : "France",
+				"PC" : "China",
+				"PK" : "Pakistan",
+				"NK" : "DPRK",
+				"CP" : "CPPP",
+				"IS" : "Israel (alleged)",
+				"IN" : "India",
+				"GB" : "UK"
+			};
 
 			var tooltip = "";
-			for(country in testNumbers[1945+i]){
-			    tooltip += tooltipCountries[country]+": "+testNumbers[1945+i][country]+", "; //slider_years[i].US;
-			    //tooltip += "<img src='../img/"+country+".png' alt=''/> "+testNumbers[1945+i][country]+", "; //slider_years[i].US;
+			for (country in testNumbers[1945 + i]) {
+				tooltip += tooltipCountries[country] + ": " + testNumbers[1945+i][country] + ", ";
+				//slider_years[i].US;
+				//tooltip += "<img src='../img/"+country+".png' alt=''/> "+testNumbers[1945+i][country]+", "; //slider_years[i].US;
 			}
 
 			if (tooltip == "") {
-			    tooltip = "No nuclear tests were cunducted this year.."
+				tooltip = "No nuclear tests were cunducted this year.."
 			}
 
-            var ttl = tooltip.length - 2;
-			element.setAttribute("tooltip", tooltip.substring(0,ttl));
+			var ttl = tooltip.length - 2;
+			element.setAttribute("tooltip", tooltip.substring(0, ttl));
 			element.textContent = toYear(i);
 
 			module.sliElem.appendChild(element);
